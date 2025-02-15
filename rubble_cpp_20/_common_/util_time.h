@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __TIME_H__
-#define __TIME_H__
+#ifndef __UTIL_TIME_H__
+#define __UTIL_TIME_H__
 
 #include <Windows.h>
 #include <time.h>
@@ -63,7 +63,7 @@ public:
 
 	void print();
 };
-void unit_test_CTime();
+void unit_test_time();
 
 class CPerformanceChecker {
 private:
@@ -79,4 +79,4 @@ public:
 };
 } //namespace rubble
 
-#endif //__TIME_H__
+#endif //__UTIL_TIME_H__

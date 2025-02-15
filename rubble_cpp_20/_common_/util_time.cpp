@@ -101,7 +101,7 @@ void CTime::print()
 	cout << format("local: {}-{}-{} {}:{}:{}", _tmLocalT.tm_year+1900, _tmLocalT.tm_mon+1, _tmLocalT.tm_mday, _tmLocalT.tm_hour, _tmLocalT.tm_min, _tmLocalT.tm_sec) << endl;
 }
 
-void unit_test_CTime()
+void unit_test_time()
 {
 	CPerformanceChecker p_check;
 
