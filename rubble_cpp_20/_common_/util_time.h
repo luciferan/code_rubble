@@ -17,8 +17,8 @@
 
 using namespace std;
 
-namespace rubble {
-
+namespace rubble 
+{
 const INT32 SEC_A_SEC = 1;
 const INT32 SEC_A_MIN = SEC_A_SEC * 60;
 const INT32 SEC_A_HOUR = SEC_A_MIN * 60;
@@ -38,6 +38,7 @@ INT64 GetTimeMilliSec();
 
 const bool default_local = true;
 
+//
 class CTime {
 private:
 	long _tzSec = 0;
@@ -50,21 +51,25 @@ private:
 public:
 	CTime();
 	CTime(__time64_t tTime, bool bLocal = default_local);
+	CTime(initializer_list<int> yyMMddhhmmss, bool bLocal = default_local);
+	CTime(int year, int month, int day, int hour, int min, int sec, bool bLocal = default_local);
+	CTime(TIMESTAMP_STRUCT dbTime, bool bLocal = default_local);
 
 	__time64_t GetTime(bool bLocal = true) { return (bLocal ? _tLocalT : _tGMT); }
 	tm* GetTimeStruct(bool bLocal = true) { return (bLocal ? &_tmLocalT : &_tmGMT); }
 
-	void Init();
+	void SetTimeZone();
 
 	void SetTime();
 	void SetTime(__time64_t tTime, bool bLocal = default_local);
 	void SetTime(initializer_list<int> yyMMddhhmmss, bool bLocal = default_local);
-	void SetTime(TIMESTAMP_STRUCT dbTime);
+	void SetTime(int year, int month, int day, int hour, int min, int sec, bool bLocal = default_local);
+	void SetTime(TIMESTAMP_STRUCT dbTime, bool bLocal = default_local);
 
 	void print();
 };
-void unit_test_time();
 
+//
 class CPerformanceChecker {
 private:
 	chrono::steady_clock::time_point _start = chrono::steady_clock::now();
@@ -77,6 +82,8 @@ public:
 	CPerformanceChecker(string* pstrBuffer, source_location loc = source_location::current());
 	~CPerformanceChecker();
 };
+
+void unit_test_time();
 } //namespace rubble
 
 #endif //__UTIL_TIME_H__

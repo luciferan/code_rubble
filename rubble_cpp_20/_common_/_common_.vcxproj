@@ -143,10 +143,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="util_file.cpp" />
     <ClCompile Include="util_string.cpp" />
     <ClCompile Include="util_time.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="util_file.h" />
     <ClInclude Include="util_string.h" />
     <ClInclude Include="util_time.h" />
   </ItemGroup>
